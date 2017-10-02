@@ -1,17 +1,29 @@
 #include "Tank.hpp"
 
-Tank::Tank(Type type, const TextureHolder & textures) 
-	:	type(type), sprite(textures.get(toTextureID(Tank::Type::Forest)))
+
+
+Tank::Tank(const TextureHolder& textures)
+	: Object(textures)
 {
-	sf::FloatRect bounds = sprite.getLocalBounds();
-	sprite.setOrigin(bounds.width / 2.f, bounds.height / 2.f);
+	object.setTexture(textures.get(Textures::ForestTank));
 }
+
 
 Tank::~Tank()
 {
 }
 
-void Tank::drawCurrent(sf::RenderTarget & target, sf::RenderStates states) const
+void Tank::update(sf::Time delta)
 {
-	target.draw(sprite, states);
+	object.move(velocity.x * delta.asMilliseconds(), velocity.y * delta.asMilliseconds());
+}
+
+void Tank::draw(sf::RenderTarget & target)
+{
+	target.draw(object);
+}
+
+void Tank::setVelocity(sf::Vector2f & vel)
+{
+	velocity = vel;
 }

@@ -18,9 +18,35 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="SelectList.cpp" />
+    <ClCompile Include="Tank.cpp" />
+    <ClCompile Include="World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Application.hpp" />
+    <ClInclude Include="Literals.hpp" />
+    <ClInclude Include="Object.hpp" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ResourceManager.hpp" />
+    <ClInclude Include="ResourceTypes.hpp" />
+    <ClInclude Include="SelectList.hpp" />
+    <ClInclude Include="Tank.hpp" />
+    <ClInclude Include="World.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ResourceManager.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Adamant Engine.rc" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{3af0cac4-9a00-4587-a48e-71c58272fe90}</ProjectGuid>
+    <ProjectGuid>{3AF0CAC4-9A00-4587-A48E-71C58272FE90}</ProjectGuid>
     <RootNamespace>Adamant_Engine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -120,30 +146,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="SceneNode.cpp" />
-    <ClCompile Include="SpriteNode.cpp" />
-    <ClCompile Include="Tank.cpp" />
-    <ClCompile Include="Application.cpp" />
-    <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="World.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="SceneNode.hpp" />
-    <ClInclude Include="SpriteNode.hpp" />
-    <ClInclude Include="Tank.hpp" />
-    <ClInclude Include="Application.hpp" />
-    <ClInclude Include="Entity.hpp" />
-    <ClInclude Include="Literals.hpp" />
-    <ClInclude Include="ResourceManager.hpp" />
-    <ClInclude Include="ResourceTypes.hpp" />
-    <ClInclude Include="World.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ResourceManager.inl" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

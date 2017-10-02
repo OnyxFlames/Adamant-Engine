@@ -1,39 +1,30 @@
 #pragma once
 
-#include <array>
+#include <vector>
 
 #include <SFML/Graphics.hpp>
 
-#include "ResourceManager.hpp"
-#include "SceneNode.hpp"
-#include "Tank.hpp"
+#include "Object.hpp"
+#include "ResourceTypes.hpp"
 
-typedef ResourceManager<sf::Texture, Textures::ID> TextureHolder;
+typedef std::unique_ptr<Object> ObjectPtr;
+typedef std::vector<ObjectPtr> ObjectList;
 
-class World : private sf::NonCopyable
+class World
 {
+private:
+	ObjectList objects;
+	std::unique_ptr<TextureHolder> mtextures;
+	std::unique_ptr<SoundHolder> msounds;
+	std::unique_ptr<FontHolder> mfonts;
 public:
-	World(sf::RenderWindow& window);
-	void update(sf::Time dt);
-	void draw();
+	World();
 	~World();
-private:
-	void loadTextures();
-	void buildScene();
 
-private:
-	enum Layer {
-		Background,
-		Air,
-		LayerCount,
-	};
-	sf::RenderWindow& window;
-	sf::View worldView;
-	TextureHolder Textures;
-	SceneNode sceneGraph;
-	std::array<SceneNode*, LayerCount> sceneLayers;
-	sf::FloatRect worldBounds;
-	sf::Vector2f spawnPosition;
-	float scrollSpeed;
-	Tank* playerTank;
+	void load_resources();
+
+	void update(sf::Time delta);
+	void draw(sf::RenderTarget& target);
+	void spawnObject(ObjectType::ID id);
 };
+
